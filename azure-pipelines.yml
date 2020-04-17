@@ -7,12 +7,11 @@ trigger:
 - master
 
 schedules:
-  - cron: "* * * * *"
-    displayName: "Run hourly"
-    branches:
-      include:
-        - master
-        - develop
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: 'ubuntu-latest'
