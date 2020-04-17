@@ -8,10 +8,11 @@ trigger:
 
 schedules:
 - cron: "0 * * * *"
-  displayName: Daily midnight build
+  displayName: Hourly build
   branches:
     include:
     - master
+  always: true
 
 pool:
   vmImage: 'ubuntu-latest'
