@@ -3,6 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  NODE_ENV: "Production"
+  MAX_RETRIES: 3
+
 trigger:
 - master
 
