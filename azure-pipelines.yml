@@ -46,7 +46,7 @@ steps:
   inputs:
     Contents: |
       **/logs/**
-      **/tmp/**
+      **/floodTests/tmp/**
 
     TargetFolder: "$(Build.ArtifactStagingDirectory)"
   condition: succeededOrFailed()
