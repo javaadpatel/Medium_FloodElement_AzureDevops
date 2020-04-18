@@ -26,6 +26,6 @@ export default () => {
     await browser.visit("https://google.com");
 
     //take screenshot of final page shown
-    // await browser.takeScreenshot();
+    await browser.takeScreenshot();
   });
 };

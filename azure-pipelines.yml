@@ -22,9 +22,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - task: NodeTool@0
   displayName: "Use Node 10.x"
   inputs:
