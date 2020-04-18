@@ -21,7 +21,39 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NodeTool@0
+  displayName: "Use Node 10.x"
+  inputs:
+    versionSpec: 10.x
+    checkLatest: true
+
+- task: Npm@1
+  displayName: "npm install"
+  inputs:
+    workingDir: ./
+    verbose: false
+
+- task: Npm@1
+  displayName: "npm run"
+  inputs:
+    command: custom
+    workingDir: ./
+    verbose: false
+    customCommand: "run pipeline"
+
+- task: CopyFiles@2
+  displayName: "Copy files"
+  inputs:
+    Contents: |
+      **/logs/**
+      **/tmp/**
+
+    TargetFolder: "$(Build.ArtifactStagingDirectory)"
+  condition: succeededOrFailed()
+
+- task: PublishPipelineArtifact@1
+  displayName: "Publish artifacts"
+  inputs:
+    targetPath: "$(Build.ArtifactStagingDirectory)"
+    artifact: deploy
+  condition: succeededOrFailed()

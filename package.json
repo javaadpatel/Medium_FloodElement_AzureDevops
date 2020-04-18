@@ -1,0 +1,30 @@
+{
+  "name": "medium_floodelement_azuredevops",
+  "version": "1.0.0",
+  "description": "Repository containing code for running FloodElement in Azure Devops build pipeline",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pipeline": "node index.js if [ $? -ne 0 ] then exit 1 fi",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javaadpatel/Medium_FloodElement_AzureDevops.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javaadpatel/Medium_FloodElement_AzureDevops/issues"
+  },
+  "homepage": "https://github.com/javaadpatel/Medium_FloodElement_AzureDevops#readme",
+  "dependencies": {
+    "@flood/element": "^1.2.3-beta.2",
+    "@flood/element-cli": "^1.2.3-beta.2",
+    "app-root-path": "^3.0.0",
+    "child-process-promise": "^2.2.1",
+    "logform": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "winston": "^3.2.1"
+  }
+}
